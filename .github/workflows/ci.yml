@@ -5,6 +5,12 @@ on:
     branches:
       - main
 
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: frontend
+  ECR_REGISTRY: 436083576844.dkr.ecr.us-east-1.amazonaws.com
+  IMAGE_TAG: ${{ github.sha }}
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -18,19 +24,19 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
 
       - name: Login to ECR
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build Docker image
         run: |
-          docker build -t frontend ./services/frontend
+          docker build -t $ECR_REPOSITORY:$IMAGE_TAG ./services/frontend
 
       - name: Tag image
         run: |
-          docker tag frontend:latest 436083576844.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
+          docker tag $ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Push to ECR
         run: |
-          docker push 436083576844.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG

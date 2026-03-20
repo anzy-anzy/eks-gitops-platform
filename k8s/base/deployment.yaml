@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: 436083576844.dkr.ecr.us-east-1.amazonaws.com/frontend:latest
+          image: 436083576844.dkr.ecr.us-east-1.amazonaws.com/frontend:REPLACE_TAG
           ports:
             - containerPort: 5000
