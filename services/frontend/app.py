@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Frontend service is running"
+ return "Welcome to the EKS GitOps Platform Frontend!"    
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
