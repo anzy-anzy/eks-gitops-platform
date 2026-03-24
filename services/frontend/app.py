@@ -28,17 +28,12 @@ def home():
           --gold: #ffca63;
           --shadow: 0 0 30px rgba(78, 255, 236, 0.12);
           --shadow-strong: 0 0 40px rgba(139, 92, 246, 0.15);
-          --radius: 24px;
         }
 
         * {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
-        }
-
-        html {
-          scroll-behavior: smooth;
         }
 
         body {
@@ -84,26 +79,19 @@ def home():
           display: flex;
           align-items: center;
           gap: 12px;
-          text-decoration: none;
           color: var(--text);
+          font-size: 1.5rem;
+          font-weight: 800;
         }
 
         .brand img {
-          width: 190px;
+          width: 180px;
           max-width: 100%;
           filter: drop-shadow(0 0 12px rgba(78, 255, 236, 0.22));
         }
 
-        .brand-fallback {
-          display: none;
-          font-size: 1.35rem;
-          font-weight: 800;
-          letter-spacing: 0.5px;
-        }
-
-        .brand-fallback span {
+        .brand-text span {
           color: var(--cyan);
-          text-shadow: 0 0 16px rgba(78, 255, 236, 0.5);
         }
 
         .nav-links {
@@ -173,19 +161,16 @@ def home():
           margin-bottom: 22px;
         }
 
-        .hero-meta {
-          display: flex;
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-
         .meta-pill {
+          display: inline-block;
           padding: 8px 12px;
           border-radius: 999px;
           border: 1px solid rgba(255,255,255,0.08);
           background: rgba(255,255,255,0.03);
           color: var(--muted);
           font-size: 0.88rem;
+          margin-right: 10px;
+          margin-bottom: 10px;
         }
 
         .btn {
@@ -195,7 +180,6 @@ def home():
           text-decoration: none;
           font-weight: 700;
           transition: 0.25s ease;
-          cursor: pointer;
         }
 
         .btn-primary {
@@ -204,58 +188,33 @@ def home():
           box-shadow: var(--shadow);
         }
 
-        .btn-primary:hover {
-          transform: translateY(-2px);
-          opacity: 0.96;
-        }
-
         .btn-secondary {
           border: 1px solid var(--line);
           color: var(--text);
           background: rgba(255, 255, 255, 0.03);
         }
 
-        .btn-secondary:hover {
-          border-color: var(--cyan);
-          color: var(--cyan);
-          transform: translateY(-2px);
+        .hero-panel, .info-card, .reserve-box, .car-card {
+          background: linear-gradient(180deg, var(--card), var(--card-2));
+          border: 1px solid var(--line);
+          border-radius: 22px;
+          box-shadow: var(--shadow);
         }
 
         .hero-panel {
-          border: 1px solid var(--line);
-          background: linear-gradient(180deg, rgba(12, 19, 40, 0.82), rgba(8, 13, 28, 0.94));
-          border-radius: var(--radius);
           padding: 18px;
-          box-shadow: var(--shadow);
-          overflow: hidden;
         }
 
         .hero-car {
           position: relative;
           overflow: hidden;
           border-radius: 18px;
-          border: 1px solid rgba(78, 255, 236, 0.12);
-          background: linear-gradient(145deg, #0b1631, #091122 55%, #050b18);
         }
 
         .hero-car img {
           width: 100%;
           aspect-ratio: 16 / 10;
           object-fit: cover;
-          opacity: 0.96;
-        }
-
-        .hero-car-badge {
-          position: absolute;
-          left: 16px;
-          top: 16px;
-          background: rgba(4, 10, 25, 0.72);
-          border: 1px solid rgba(78,255,236,0.18);
-          color: var(--cyan);
-          padding: 8px 12px;
-          border-radius: 999px;
-          font-size: 0.8rem;
-          backdrop-filter: blur(10px);
         }
 
         .hero-car-name {
@@ -268,20 +227,10 @@ def home():
           background: rgba(4, 10, 25, 0.6);
           padding: 8px 12px;
           border-radius: 12px;
-          border: 1px solid rgba(255,255,255,0.06);
         }
 
         section {
           padding: 34px 0 24px;
-        }
-
-        .section-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: end;
-          gap: 16px;
-          margin-bottom: 24px;
-          flex-wrap: wrap;
         }
 
         .section-title {
@@ -291,7 +240,7 @@ def home():
 
         .section-sub {
           color: var(--muted);
-          max-width: 760px;
+          margin-bottom: 20px;
         }
 
         .currency-note {
@@ -301,6 +250,8 @@ def home():
           border: 1px solid rgba(255, 202, 99, 0.16);
           padding: 10px 14px;
           border-radius: 14px;
+          margin-bottom: 20px;
+          display: inline-block;
         }
 
         .cars-grid {
@@ -310,46 +261,25 @@ def home():
         }
 
         .car-card {
-          background: linear-gradient(180deg, var(--card), var(--card-2));
-          border: 1px solid var(--line);
-          border-radius: 22px;
           overflow: hidden;
-          box-shadow: var(--shadow);
           transition: 0.25s ease;
-          position: relative;
         }
 
         .car-card:hover {
           transform: translateY(-6px);
-          border-color: rgba(78, 255, 236, 0.36);
           box-shadow: var(--shadow-strong);
-        }
-
-        .car-card::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, rgba(78,255,236,0.03), transparent 45%);
-          pointer-events: none;
         }
 
         .car-visual {
           position: relative;
           height: 230px;
           overflow: hidden;
-          background: linear-gradient(135deg, #0b1736, #091324 60%, #060b17);
         }
 
         .car-visual img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.35s ease, filter 0.35s ease;
-        }
-
-        .car-card:hover .car-visual img {
-          transform: scale(1.05);
-          filter: saturate(1.08);
         }
 
         .car-price {
@@ -363,7 +293,6 @@ def home():
           color: var(--gold);
           font-weight: 700;
           font-size: 0.88rem;
-          backdrop-filter: blur(8px);
         }
 
         .car-body {
@@ -386,21 +315,13 @@ def home():
           margin-bottom: 8px;
         }
 
-        .car-body p {
+        .car-body p, .info-card p, .reserve-box p, .reserve-box li {
           color: var(--muted);
-          font-size: 0.95rem;
-          margin-bottom: 12px;
         }
 
-        .car-body ul {
+        .car-body ul, .reserve-box ul {
           padding-left: 18px;
-          color: var(--text);
-          margin-bottom: 14px;
-        }
-
-        .car-body li {
-          margin-bottom: 6px;
-          color: var(--muted);
+          margin: 12px 0 14px;
         }
 
         .delivery {
@@ -409,69 +330,19 @@ def home():
           margin-bottom: 14px;
         }
 
-        .story-grid,
-        .about-grid,
-        .contact-grid {
+        .about-grid, .story-grid, .contact-grid, .reserve-panel {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 20px;
         }
 
-        .info-card {
-          background: linear-gradient(180deg, var(--card), var(--card-2));
-          border: 1px solid var(--line);
-          border-radius: 22px;
+        .info-card, .reserve-box {
           padding: 22px;
-          box-shadow: var(--shadow);
         }
 
-        .info-card h3 {
-          margin-bottom: 10px;
-          color: var(--cyan);
-        }
-
-        .info-card p {
-          color: var(--muted);
-        }
-
-        .reserve-panel {
-          display: grid;
-          grid-template-columns: 1.2fr 0.8fr;
-          gap: 20px;
-        }
-
-        .reserve-box {
-          background: linear-gradient(180deg, rgba(14, 22, 48, 0.9), rgba(8, 14, 30, 0.94));
-          border: 1px solid var(--line);
-          border-radius: 22px;
-          padding: 24px;
-          box-shadow: var(--shadow);
-        }
-
-        .reserve-box h3 {
+        .info-card h3, .reserve-box h3 {
           color: var(--cyan);
           margin-bottom: 10px;
-        }
-
-        .reserve-box p,
-        .reserve-box li {
-          color: var(--muted);
-        }
-
-        .reserve-box ul {
-          padding-left: 18px;
-          margin: 12px 0 16px;
-        }
-
-        .reserve-highlight {
-          color: var(--gold);
-          font-weight: 700;
-        }
-
-        .timeline {
-          display: grid;
-          gap: 12px;
-          margin-top: 12px;
         }
 
         .timeline-step {
@@ -480,6 +351,7 @@ def home():
           background: rgba(255,255,255,0.03);
           border: 1px solid rgba(255,255,255,0.05);
           color: var(--muted);
+          margin-bottom: 10px;
         }
 
         .footer {
@@ -500,32 +372,18 @@ def home():
         }
 
         @media (max-width: 980px) {
-          .hero-wrap,
-          .about-grid,
-          .story-grid,
-          .contact-grid,
-          .reserve-panel {
+          .hero-wrap, .about-grid, .story-grid, .contact-grid, .reserve-panel {
             grid-template-columns: 1fr;
           }
         }
 
         @media (max-width: 640px) {
-          h1 {
-            font-size: 2.35rem;
-          }
-
-          .nav-inner {
-            gap: 12px;
-            align-items: flex-start;
-            flex-direction: column;
-          }
-
           .cars-grid {
             grid-template-columns: 1fr;
           }
-
-          .brand img {
-            width: 160px;
+          .nav-inner {
+            flex-direction: column;
+            align-items: flex-start;
           }
         }
       </style>
@@ -533,10 +391,10 @@ def home():
     <body>
       <nav class="nav">
         <div class="container nav-inner">
-          <a class="brand" href="#top">
-            <img src="/static/cars/futurecars-logo-2055.png" alt="FutureCars 2055 Logo" onerror="this.style.display='none'; document.querySelector('.brand-fallback').style.display='block';">
-            <div class="brand-fallback">Future<span>Cars</span> 2055</div>
-          </a>
+          <div class="brand">
+            <img src="/static/cars/futurecars-logo-2055.png" alt="FutureCars Logo">
+            <div class="brand-text">Future<span>Cars</span> 2055</div>
+          </div>
 
           <div class="nav-links">
             <a href="#cars">Cars</a>
@@ -548,7 +406,7 @@ def home():
         </div>
       </nav>
 
-      <header class="hero" id="top">
+      <header class="hero">
         <div class="container hero-wrap">
           <div>
             <div class="eyebrow">Luxury vehicles from tomorrow</div>
@@ -557,9 +415,7 @@ def home():
               of 2055.
             </h1>
             <p>
-              FutureCars is a digital showroom for ultra-rare concept vehicles engineered
-              for the year 2055 — hover systems, chrono-AI navigation, plasma nitro,
-              cinematic alien design, and luxury beyond Earth.
+              FutureCars is a digital showroom for ultra-rare concept vehicles engineered for the year 2055 — hover systems, chrono-AI navigation, plasma nitro, cinematic alien design, and luxury beyond Earth.
             </p>
 
             <div class="cta-row">
@@ -567,17 +423,16 @@ def home():
               <a class="btn btn-secondary" href="#reserve">Reserve for 2055</a>
             </div>
 
-            <div class="hero-meta">
-              <div class="meta-pill">7 mutated luxury machines</div>
-              <div class="meta-pill">Delivery wave: 2055</div>
-              <div class="meta-pill">Currency: Cosmic Credits ⟠C</div>
+            <div>
+              <span class="meta-pill">7 mutated luxury machines</span>
+              <span class="meta-pill">Delivery wave: 2055</span>
+              <span class="meta-pill">Currency: Cosmic Credits ⟠C</span>
             </div>
           </div>
 
           <div class="hero-panel">
             <div class="hero-car">
-              <img src="/static/cars/tesla-xr-infinity.jpg" alt="Tesla Xr-Infinity">
-              <div class="hero-car-badge">Flagship Hypercar</div>
+              <img src="/static/cars/tesla-xr-infinity.png" alt="Tesla Xr-Infinity">
               <div class="hero-car-name">TESLA XR-INFINITY</div>
             </div>
           </div>
@@ -586,22 +441,14 @@ def home():
 
       <section id="cars">
         <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">FutureCars Collection</h2>
-              <p class="section-sub">
-                Seven rare machines inspired by today’s icons, reborn for a sci-fi civilization.
-              </p>
-            </div>
-            <div class="currency-note">
-              All prices are listed in <strong>Cosmic Credits (⟠C)</strong>, the luxury reserve currency of 2055.
-            </div>
-          </div>
+          <h2 class="section-title">FutureCars Collection</h2>
+          <p class="section-sub">Seven rare machines inspired by today’s icons, reborn for a sci-fi civilization.</p>
+          <div class="currency-note">All prices are listed in <strong>Cosmic Credits (⟠C)</strong>, the luxury reserve currency of 2055.</div>
 
           <div class="cars-grid">
             <article class="car-card">
               <div class="car-visual">
-                <img src="/static/cars/tesla-xr-infinity.jpg" alt="Tesla Xr-Infinity">
+                <img src="/static/cars/tesla-xr-infinity.png" alt="Tesla Xr-Infinity">
                 <div class="car-price">⟠C 2.2M</div>
               </div>
               <div class="car-body">
@@ -620,7 +467,7 @@ def home():
 
             <article class="car-card">
               <div class="car-visual">
-                <img src="/static/cars/bmw-nebula-ix.jpg" alt="BMW Nebula IX">
+                <img src="/static/cars/bmw-nebula-ix.png" alt="BMW Nebula IX">
                 <div class="car-price">⟠C 2.9M</div>
               </div>
               <div class="car-body">
@@ -639,12 +486,12 @@ def home():
 
             <article class="car-card">
               <div class="car-visual">
-                <img src="/static/cars/mercedes-vision-aeon.jpg" alt="Mercedes Vision Aeon">
+                <img src="/static/cars/mercedes-vision-aeon.png" alt="Mercedes Vision Aeon">
                 <div class="car-price">⟠C 3.6M</div>
               </div>
               <div class="car-body">
                 <div class="tag">Neural Luxury Sedan</div>
-                <h3 class="car-title">Mercedes Vision Æon</h3>
+                <h3 class="car-title">Mercedes Vision Aeon</h3>
                 <p>A future descendant of the EQS with a neural-link drive core and liquid metal elegance.</p>
                 <ul>
                   <li>Floating suspension</li>
@@ -658,7 +505,7 @@ def home():
 
             <article class="car-card">
               <div class="car-visual">
-                <img src="/static/cars/porsche-eclipse-9110.jpg" alt="Porsche Eclipse 9110">
+                <img src="/static/cars/porsche-eclipse-9110.png" alt="Porsche Eclipse 9110">
                 <div class="car-price">⟠C 4.1M</div>
               </div>
               <div class="car-body">
@@ -677,7 +524,7 @@ def home():
 
             <article class="car-card">
               <div class="car-visual">
-                <img src="/static/cars/lucid-astral-gt.jpg" alt="Lucid Astral GT">
+                <img src="/static/cars/lucid-astral-gt.png" alt="Lucid Astral GT">
                 <div class="car-price">⟠C 3.3M</div>
               </div>
               <div class="car-body">
@@ -696,7 +543,7 @@ def home():
 
             <article class="car-card">
               <div class="car-visual">
-                <img src="/static/cars/cadillac-quantum-limo.jpg" alt="Cadillac Quantum Limo">
+                <img src="/static/cars/cadillac-quantum-limo.png" alt="Cadillac Quantum Limo">
                 <div class="car-price">⟠C 6.0M</div>
               </div>
               <div class="car-body">
@@ -715,7 +562,7 @@ def home():
 
             <article class="car-card">
               <div class="car-visual">
-                <img src="/static/cars/delorean-thunderflight.jpg" alt="DeLorean Thunderflight">
+                <img src="/static/cars/delorean-thunderflight.png" alt="DeLorean Thunderflight">
                 <div class="car-price">⟠C 5.4M</div>
               </div>
               <div class="car-body">
@@ -737,14 +584,8 @@ def home():
 
       <section id="story">
         <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">The Founder Story</h2>
-              <p class="section-sub">
-                Behind FutureCars is a vision to make tomorrow’s mobility reservable today.
-              </p>
-            </div>
-          </div>
+          <h2 class="section-title">The Founder Story</h2>
+          <p class="section-sub">Behind FutureCars is a vision to make tomorrow’s mobility reservable today.</p>
 
           <div class="story-grid">
             <div class="info-card">
@@ -755,19 +596,14 @@ def home():
               </p>
               <p style="margin-top: 10px;">
                 After building high-value digital infrastructure and accumulating a fortune of
-                <strong>5,900,000,000 Cosmic Credits</strong>, he launched FutureCars as a luxury concept
-                marketplace for the machines of 2055.
+                <strong>5,900,000,000 Cosmic Credits</strong>, he launched FutureCars as a luxury concept marketplace for the machines of 2055.
               </p>
             </div>
 
             <div class="info-card">
               <h3>The Mission</h3>
               <p>
-                FutureCars exists to preview the next era of transportation — where AI, alien-inspired design,
-                aerospace engineering, and extreme luxury merge into a single machine.
-              </p>
-              <p style="margin-top: 10px;">
-                Every reservation secures a place in the official 2055 production wave.
+                FutureCars exists to preview the next era of transportation — where AI, alien-inspired design, aerospace engineering, and extreme luxury merge into a single machine.
               </p>
             </div>
           </div>
@@ -776,14 +612,8 @@ def home():
 
       <section id="about">
         <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">About FutureCars</h2>
-              <p class="section-sub">
-                A future-focused concept showroom powered by a cloud-native GitOps platform.
-              </p>
-            </div>
-          </div>
+          <h2 class="section-title">About FutureCars</h2>
+          <p class="section-sub">A future-focused concept showroom powered by a cloud-native GitOps platform.</p>
 
           <div class="about-grid">
             <div class="info-card">
@@ -809,42 +639,31 @@ def home():
 
       <section id="reserve">
         <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Reserve a Vehicle</h2>
-              <p class="section-sub">
-                Place your reservation today and secure your position in the 2055 delivery wave.
-              </p>
-            </div>
-          </div>
+          <h2 class="section-title">Reserve a Vehicle</h2>
+          <p class="section-sub">Place your reservation today and secure your position in the 2055 delivery wave.</p>
 
           <div class="reserve-panel">
             <div class="reserve-box">
               <h3>Reservation Protocol</h3>
               <p>
                 Customers submit a future reservation request, select a vehicle,
-                and receive a digital <span class="reserve-highlight">Future Delivery Certificate</span>
+                and receive a digital <strong>Future Delivery Certificate</strong>
                 confirming their 2055 allocation slot.
               </p>
-
               <ul>
                 <li>Select your FutureCars model</li>
                 <li>Choose your preferred delivery wave</li>
                 <li>Receive a Priority Quantum Allocation Certificate</li>
                 <li>Await production activation in 2055</li>
               </ul>
-
-              <a class="btn btn-primary" href="#contact">Start Reservation</a>
             </div>
 
             <div class="reserve-box">
               <h3>Delivery Timeline</h3>
-              <div class="timeline">
-                <div class="timeline-step">2026 — Reservation window opens</div>
-                <div class="timeline-step">2035 — Prototype validation wave</div>
-                <div class="timeline-step">2045 — Quantum assembly launch</div>
-                <div class="timeline-step">2055 — Official delivery begins</div>
-              </div>
+              <div class="timeline-step">2026 — Reservation window opens</div>
+              <div class="timeline-step">2035 — Prototype validation wave</div>
+              <div class="timeline-step">2045 — Quantum assembly launch</div>
+              <div class="timeline-step">2055 — Official delivery begins</div>
             </div>
           </div>
         </div>
@@ -852,19 +671,14 @@ def home():
 
       <section id="contact">
         <div class="container">
-          <div class="section-header">
-            <div>
-              <h2 class="section-title">Contact</h2>
-              <p class="section-sub">Talk to our future mobility concierge team.</p>
-            </div>
-          </div>
+          <h2 class="section-title">Contact</h2>
+          <p class="section-sub">Talk to our future mobility concierge team.</p>
 
           <div class="contact-grid">
             <div class="info-card">
               <h3>Email</h3>
               <p>reserve@futurecars.anzyworld.com</p>
             </div>
-
             <div class="info-card">
               <h3>Headquarters</h3>
               <p>Neo Mobility District, Orbit City, Earth Sector 2055</p>
