@@ -12,7 +12,7 @@ def home():
     <ul>
         <li>Tesla Model S</li>
         <li>BMW i7</li>
-        <li>Mercedes EQS</li>
+        <li>Mercedes 2055</li>
         <li>Porsche Taycan</li>
     </ul>
 
