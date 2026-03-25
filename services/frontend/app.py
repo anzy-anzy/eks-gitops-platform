@@ -415,7 +415,7 @@ def home():
               of 2055.
             </h1>
             <p>
-              FutureCars is a digital showroom for ultra-rare concept vehicles engineered for the year 2055 — hover systems, chrono-AI navigation, plasma nitro, cinematic alien design, and luxury beyond Earth.
+              FutureCars is a digital showroom for ultra-rare concept vehicles engineered for the year 2055 hover systems, chrono-AI navigation, plasma nitro, cinematic alien design, and luxury beyond Earth.
             </p>
 
             <div class="cta-row">
