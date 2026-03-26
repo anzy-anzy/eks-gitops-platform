@@ -1,4 +1,4 @@
-# AWS EKS GitOps DevOps Platform — Application Phase
+# AWS EKS GitOps DevOps Platform, Application Phase
 
 This repository contains the application delivery layer for the AWS EKS GitOps DevOps Platform.
 
@@ -586,7 +586,7 @@ helm upgrade --install aws-load-balancer-controller eks/aws-load-balancer-contro
 --set serviceAccount.create=false \
 --set serviceAccount.name=aws-load-balancer-controller \
 --set region=us-east-1 \
---set vpcId=vpc-0bdeb87bda8f53224
+--set vpcId=vpc-0bdeb87bda8f
 ```
 
 This controller enables Kubernetes to automatically provision AWS ALBs from Ingress resources.
@@ -890,7 +890,9 @@ The frontend demonstrates how application updates flow through the **GitOps pipe
 <img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/22c55afa-1fa1-4d0d-9588-4dd6cbdd4461" />
 <img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/554571f8-1693-4ede-9f2f-0213f1da2b45" />
 <img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/ae88661e-529e-40e9-bdb8-f04aca4db3d4" />
+
 <img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/033f61ae-bdca-4e4e-b6e8-d309a6e2fe1b" />
+
 <img width="2940" height="1912" alt="image" src="https://github.com/user-attachments/assets/179f313d-4bf6-4dd3-b579-0d979a12a766" />
 
 
